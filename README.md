@@ -62,7 +62,7 @@
 ### Критерії прийняття
 - Додано нові типи токенів для операцій множення MUL, ділення DIV та дужок.
 - Модифіковано метод get_next_token, щоб він розпізнавав нові символи.
-- Модифіковано парсер Parser .
+- Модифіковано парсер Parser.
 - Оновлено Інтерпретатор так, щоб він підтримував операції множення та ділення, обробляв вирази з дужками.
 - Інтерпретатор працює.
 
@@ -72,5 +72,5 @@
 ## Додатково
 - [Домашнє завдання до модуля "Архітектура комп'ютерів"](https://www.edu.goit.global/uk/learn/25315460/19336208/21155308/homework)
 - [https://github.com/nickolas-z/goit-cs-hw-01](https://github.com/nickolas-z/goit-cs-hw-01)
-- [goit-cs-hw-01-main.zip]()
+- [goit-cs-hw-01-main.zip](https://s3.eu-north-1.amazonaws.com/lms.goit.files/ea1ecf58-0cd7-43fd-9443-9988d8118e2a%D0%94%D0%971_%D0%97%D1%83%D0%B1%D1%87%D0%B8%D0%BA%D0%9C%D0%B8%D0%BA%D0%BE%D0%BB%D0%B0%D0%9C%D0%B8%D0%BA%D0%BE%D0%BB%D0%B0%D0%B9%D0%BE%D0%B2%D0%B8%D1%87.zip)
 - [Computer-Systems-and-Their-Fundamentals](https://github.com/nickolas-z/Computer-Systems-and-Their-Fundamentals)
