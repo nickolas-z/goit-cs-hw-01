@@ -1,3 +1,6 @@
+from turtle import right
+
+
 class LexicalError(Exception):
     pass
 
@@ -166,7 +169,6 @@ class Parser:
     def factor(self):
         """Парсер для 'factor' правил граматики. Цілі числа або вирази в дужках."""
         token = self.current_token
-
         if token.type == TokenType.PLUS:
             self.eat(TokenType.PLUS)
             node = UnaryOp(token, self.factor())
@@ -175,8 +177,7 @@ class Parser:
             self.eat(TokenType.MINUS)
             node = UnaryOp(token, self.factor())
             return node
-
-        if token.type == TokenType.INTEGER:
+        elif token.type == TokenType.INTEGER:
             self.eat(TokenType.INTEGER)
             return Num(token)
         elif token.type == TokenType.LPAREN:
@@ -186,6 +187,10 @@ class Parser:
             return node
         else:
             self.error()
+
+    def parse(self):
+        """ Початковий метод парсера."""
+        return self.expr()
 
 
 def print_ast(node, level=0):
@@ -215,6 +220,8 @@ class Interpreter:
         elif node.op.type == TokenType.MUL:
             return self.visit(node.left) * self.visit(node.right)
         elif node.op.type == TokenType.DIV:
+            if self.visit(node.right) == 0:
+                raise Exception("Ділення на нуль")
             return self.visit(node.left) / self.visit(node.right)
 
     def visit_Num(self, node):
@@ -227,7 +234,7 @@ class Interpreter:
             return -self.visit(node.expr)
 
     def interpret(self):
-        tree = self.parser.expr()
+        tree = self.parser.parse()
         return self.visit(tree)
 
     def visit(self, node):
@@ -251,6 +258,8 @@ def main():
             interpreter = Interpreter(parser)
             result = interpreter.interpret()
             print(result)
+        except ZeroDivisionError as e:
+            print(e)
         except Exception as e:
             print(e)
 
